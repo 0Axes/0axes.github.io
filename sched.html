@@ -214,11 +214,6 @@ body {
 </div>
   
   <script>
-  // Check if URL ends with ".html"
-  if (window.location.pathname.endsWith('.html')) {
-    // Redirect to the same page without ".html"
-    window.location.href = window.location.pathname.replace('.html', '');
-  }
   // Replace 'backToMain' with your back button ID
   const backBtn = document.getElementById('backBtn'); 
   // Replace with your container selector
@@ -236,6 +231,19 @@ body {
         window.location.href = targetUrl;
       }, 500);
     });
+    // Reset animations safely when using browser back/forward
+  window.addEventListener('pageshow', (event) => {
+    const activeContainer = document.getElementById('mainContainer');
+    if (activeContainer) {
+      activeContainer.classList.remove('slide-out-left', 'slide-out-right');
+
+      if (event.persisted) {
+        activeContainer.style.animation = 'none';
+        void activeContainer.offsetWidth; // Trigger reflow
+        activeContainer.style.animation = '';
+      }
+    }
+  });
   }
 </script>
 
