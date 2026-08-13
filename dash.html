@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: Stratum2;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      min-height: 100dvh; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .main-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 30px 20px;
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      
+      /* Default entrance animation */
+      animation: slideInRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Animation when clicking a feature card (slides out left) */
+    .main-container.slide-out-left {
+      animation: slideOutLeft 0.5s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+    }
+
+    /* Animation when returning back to Welcome page (slides out right) */
+    .main-container.slide-out-right {
+      animation: slideOutRight 0.5s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #e2e8f0;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+      color: #cbd5e1;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideOutLeft {
+      from { opacity: 1; transform: translateX(0); }
+      to { opacity: 0; transform: translateX(-100%); }
+    }
+
+    @keyframes slideOutRight {
+      from { opacity: 1; transform: translateX(0); }
+      to { opacity: 0; transform: translateX(100%); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-container" id="mainContainer">
+    <h1>Dashboard</h1>
+    <p id="welcomeTip">bagal wifi</p>
+
+    <div class="grid">
+      <a href="hell.html" class="card feature-link">
+        <h3>My Schedule</h3>
+        <p>Schedule bullsh</p>
+      </a>
+
+      <a href="https://youtu.be/dQw4w9WgXcQ" class="card feature-link">
+        <h3>UY SI MAXION</h3>
+        <p>&#128064;</p>
+      </a>
+
+      <a href="feature3.html" class="card feature-link">
+        <h3>COMIMG SOON.</h3>
+        <p>COMING SOON.</p>
+      </a>
+
+      <a href="feature3.html" class="card feature-link">
+        <h3>COMING SOON.</h3>
+        <p>COMING SOON.</p>
+      </a>
+    </div>
+
+    <a href="index.html" class="btn-secondary" id="backBtn">&larr; Back to Welcome</a>
+  </div>
+
+  <script>
+    const tips = [
+      "Nig-",
+      "Bakla si Mio",
+      "Niggatron!!!",
+      "pindot nlng",
+      "solid",
+      "pakyu",
+      "ksgeiwhsskdywousgw91718ahsbd9",
+      "hatdog",
+      "9ehewjwhis9duehww9",
+    ];
+    const tipElement = document.getElementById('welcomeTip');
+    const randomIndex = Math.floor(Math.random() * tips.length);
+    tipElement.textContent = tips[randomIndex];
+    
+    const container = document.getElementById('mainContainer');
+    const featureLinks = document.querySelectorAll('.feature-link');
+    const backBtn = document.getElementById('backBtn');
+
+    // Handle forward navigation to feature pages (Slide Left)
+    featureLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetUrl = link.getAttribute('href');
+        container.classList.add('slide-out-left');
+
+        setTimeout(() => {
+          window.location.href = targetUrl;
+        }, 500);
+      });
+    });
+
+     if (backBtn) {
+      backBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetUrl = backBtn.getAttribute('href');
+        container.classList.add('slide-out-right');
+
+        setTimeout(() => {
+          window.location.href = targetUrl;
+        }, 500);
+      });
+    }
+  </script>
+
+</body>
+</html>

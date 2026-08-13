@@ -5,33 +5,3 @@
   justify-content: center; /* Horizontally centers */
   align-items: center;    /* Vertically centers (if container has height) */
 }
-
-.fun-container {
-  font-family: 'Courier New', monospace;
-  padding: 20px;
-  background: #0f172a;
-  color: #38bdf8;
-  border-radius: 12px;
-  border: 2px dashed #38bdf8;
-  max-width: 400px;
-}
-
-#fname {
-  background: #1e293b;
-  border: 1px solid #38bdf8;
-  color: #fff;
-  padding: 8px;
-  font-size: 16px;
-  border-radius: 6px;
-  width: 90%;
-}
-
-.result {
-  font-weight: bold;
-  margin-top: 15px;
-}
-
-#alien-name {
-  color: #f43f5e;
-  text-transform: uppercase;
-}

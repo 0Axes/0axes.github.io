@@ -1,184 +1,150 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>TANGINA</title>
-<link rel="stylesheet" href="style.css">
-<style>
-table {
-  border-collapse: collapse;
-}
-td {
-  font-family: Stratum2
-}
-th {
-  font-family: Stratum2;
-  text-align: center
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WELCOME</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    h1 {
+      font-family: Stratum2;
+    }
+
+    body {
+      font-family: Stratum2;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .welcome-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 40px 30px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+
+      animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .welcome-card.slide-out {
+      animation: slideOut 0.5s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+    }
+
+    .welcome-card h1 {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .btn-main {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #ffffff;
+      color: #4c51bf;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 30px;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+
+    .welcome-card p {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      font-style: italic;
+      min-height: 3.2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-main:hover {
+      background-color: #f7fafc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(-100vw); /* Slides left off screen */
+      }
+    }
+  </style>
 </head>
-
 <body>
-<h1 style="font-family: Stratum2; text-align: center;">Schedule</h1>
 
-<table style="margin-left: auto; margin-right: auto" border=1>
-<tr>
-<th>Time</th>
-<th>Monday</th>
-<th>Tuesday</th>
-<th>Wednesday</th>
-<th>Thursday</th>
-<th>Friday</th>
-</tr>
+  <div class="welcome-card" id="welcomeCard">
+    <h1>Welcome!</h1>
+    <p id="welcomeTip">Loading tip...</p>
+    <a href="dash.html" class="btn-main" id="startBtn">Get Started &rarr;</a>
+  </div>
 
-<tr>
-<td>6:00am-6:40am</td>
-<td>Values Ed.</td>
-<td>Values Ed.</td>
-<td>Values Ed.</td>
-<td>Values Ed.</td>
-<td>Values Ed.</td>
-</tr> 
+  <script>
+    const tips = [
+      "Nig-",
+      "Bakla si Mio",
+      "Niggatron!",
+      "Chabit",
+      "Puwet",
+      "Doc",
+      "Duling",
+      "Toothless",
+      "Dugo",
+    ];
+    const tipElement = document.getElementById('welcomeTip');
+    const randomIndex = Math.floor(Math.random() * tips.length);
+    tipElement.textContent = tips[randomIndex];
 
-<tr>
-  <th colspan=6>Mr. Gabrielles</th>
-</tr>
+    const btn = document.getElementById('startBtn');
+    const card = document.getElementById('welcomeCard');
 
-<tr>
-  <td>6:40am-7:20am</td>
-  <td>Filipino</td>
-  <td>Filipino</td>
-  <td>Filipino</td>
-  <td>Filipino</td>
-  <td>Filipino</td>
-</tr>
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetUrl = btn.getAttribute('href');
 
-<tr>
-  <th colspan=6>Mrs. Dupan</th>
-</tr>
+      card.classList.add('slide-out');
 
-<tr>
-  <td>7:20am-8:00am</td>
-  <td>Mathematics</td>
-  <td>Mathematics</td>
-  <td>Mathematics</td>
-  <td>Mathematics</td>
-  <td>Mathematics</td>
-</tr>
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 500);
+    });
+  </script>
 
-<tr>
-  <th colspan=6>Mrs. Umayam</th>
-</tr>
-
-<tr>
-  <td>8:00am-8:40am</td>
-  <td>Science</td>
-  <td>Science</td>
-  <td>Science</td>
-  <td>Science</td>
-  <td>Science</td>
-</tr>
-
-<tr>
-  <th colspan=6>Mrs. Laquin</th>
-</tr>
-
-
-<tr>
-  <td>8:40am-9:00am</td>
-  <td>Recess</td>
-  <td>Recess</td>
-  <td>Recess</td>
-  <td>Recess</td>
-  <td>Recess</td>
-</tr>
-
-<tr>
-  <th colspan=6>&nbsp;</th>
-</tr>
-
-<tr>
-  <td>9:00am-9:40am</td>
-  <td>TLE</td>
-  <td>TLE</td>
-  <td>TLE</td>
-  <td>TLE</td>
-  <td>TLE</td>
-</tr>
-
-<tr>
-  <th colspan=6>Mr. Sorno</th>
-</tr>
-
-<tr>
-  <td>9:40am-10:20am</td>
-  <td>English</td>
-  <td>English</td>
-  <td>English</td>
-  <td>English</td>
-  <td>English</td>
-</tr>
-
-<tr>
-  <th colspan=6>Mrs. Paraiso</th>
-</tr>
-
-
-<tr>
-  <td>10:20am-11:00am</td>
-  <td>MAPEH</td>
-  <td>MAPEH</td>
-  <td>MAPEH</td>
-  <td>MAPEH</td>
-  <td>MAPEH</td>
-</tr>
-
-<tr>
-  <th colspan=6>Mrs. Cerbito</th>
-</tr>
-
-<tr>
-  <td>11:00am-11:40am</td>
-  <td>A.P</td>
-  <td>A.P</td>
-  <td>A.P</td>
-  <td>A.P</td>
-  <td>A.P</td>
-</tr>
-
-<tr>
-  <th colspan=6>Mr. Almario</th>
-</tr>
-
-
-
-
-
-
-  
-</table>
-
-<label>am i cool?:</label>
-<select>
-  <option>yes</option>
-  <option>no</option>
-</select>
-
-<h1>pakyu</h1>
-
-
-<form>
-<label for="fname">Username:</label>
-<input type="text" id="fname" name="fname" placeholder="pakyu ilagay mo pangalan mo dto">
-</form>
-
-<div class="fun-container">
-  <label for="fname">🛸 Enter First Name to Interstellar-ize:</label>
-  <input type="text" id="fname" placeholder="Your earthly name...">
-  <p class="result">Your Alien Alter-Ego: <span id="alien-name">...</span></p>
-</div>
-<div class="img-container">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6pu2LMCq49MHzuBh9ZKHNMvY6oAc65f6AxIq8hlhUYVvxJJEQpzITe6gd&s=10" height="100" width="100">
-</div>
-  
 </body>
 </html>
-

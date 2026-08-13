@@ -1,0 +1,238 @@
+<html>
+<head>
+<title>My Schedule</title>
+<link rel="stylesheet" href="style.css">
+<style>
+table {
+  border-collapse: collapse;
+}
+td {
+  font-family: Stratum2
+}
+th {
+  font-family: Stratum2;
+  text-align: center
+}
+.btn-secondary {
+      display: inline-block;
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+}
+body {
+  font-family: Stratum2;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+.your-container-class {
+  animation: slideInRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.your-container-class.slide-out-right {
+  animation: slideOutRight 0.5s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+</style>
+</head>
+
+<body class="your-container-class">
+<h1 style="font-family: Stratum2; text-align: center;">Schedule</h1>
+
+<table style="margin-left: auto; margin-right: auto" border=1>
+<tr>
+<th>Time</th>
+<th>Monday</th>
+<th>Tuesday</th>
+<th>Wednesday</th>
+<th>Thursday</th>
+<th>Friday</th>
+</tr>
+
+<tr>
+<td>6:00am-6:40am</td>
+<td>Values Ed.</td>
+<td>Values Ed.</td>
+<td>Values Ed.</td>
+<td>Values Ed.</td>
+<td>Values Ed.</td>
+</tr> 
+
+<tr>
+  <th colspan=6>Mr. Gabrielles</th>
+</tr>
+
+<tr>
+  <td>6:40am-7:20am</td>
+  <td>Filipino</td>
+  <td>Filipino</td>
+  <td>Filipino</td>
+  <td>Filipino</td>
+  <td>Filipino</td>
+</tr>
+
+<tr>
+  <th colspan=6>Mrs. Dupan</th>
+</tr>
+
+<tr>
+  <td>7:20am-8:00am</td>
+  <td>Mathematics</td>
+  <td>Mathematics</td>
+  <td>Mathematics</td>
+  <td>Mathematics</td>
+  <td>Mathematics</td>
+</tr>
+
+<tr>
+  <th colspan=6>Mrs. Umayam</th>
+</tr>
+
+<tr>
+  <td>8:00am-8:40am</td>
+  <td>Science</td>
+  <td>Science</td>
+  <td>Science</td>
+  <td>Science</td>
+  <td>Science</td>
+</tr>
+
+<tr>
+  <th colspan=6>Mrs. Laquin</th>
+</tr>
+
+
+<tr>
+  <td>8:40am-9:00am</td>
+  <td>Recess</td>
+  <td>Recess</td>
+  <td>Recess</td>
+  <td>Recess</td>
+  <td>Recess</td>
+</tr>
+
+<tr>
+  <th colspan=6>&nbsp;</th>
+</tr>
+
+<tr>
+  <td>9:00am-9:40am</td>
+  <td>TLE</td>
+  <td>TLE</td>
+  <td>TLE</td>
+  <td>TLE</td>
+  <td>TLE</td>
+</tr>
+
+<tr>
+  <th colspan=6>Mr. Sorno</th>
+</tr>
+
+<tr>
+  <td>9:40am-10:20am</td>
+  <td>English</td>
+  <td>English</td>
+  <td>English</td>
+  <td>English</td>
+  <td>English</td>
+</tr>
+
+<tr>
+  <th colspan=6>Mrs. Paraiso</th>
+</tr>
+
+
+<tr>
+  <td>10:20am-11:00am</td>
+  <td>MAPEH</td>
+  <td>MAPEH</td>
+  <td>MAPEH</td>
+  <td>MAPEH</td>
+  <td>MAPEH</td>
+</tr>
+
+<tr>
+  <th colspan=6>Mrs. Cerbito</th>
+</tr>
+
+<tr>
+  <td>11:00am-11:40am</td>
+  <td>A.P</td>
+  <td>A.P</td>
+  <td>A.P</td>
+  <td>A.P</td>
+  <td>A.P</td>
+</tr>
+
+<tr>
+  <th colspan=6>Mr. Almario</th>
+</tr>
+
+
+
+
+
+
+  
+</table>
+  
+<br>
+  
+</div class="img-container">
+</img src="match.jpeg" height="100" width="100">
+</img src="match2.jpeg"height="100" width="100">
+</div>
+  
+<div class="img-container">
+  <a href="dash.html" class="btn-secondary" id="backBtn">&larr; Back to Dashboard</a>
+</div>
+  
+  <script>
+  // Replace 'backToMain' with your back button ID
+  const backBtn = document.getElementById('backBtn'); 
+  // Replace with your container selector
+  const container = document.querySelector('.your-container-class'); 
+
+  if (backBtn && container) {
+    backBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetUrl = backBtn.getAttribute('href');
+
+      // Trigger slide out to the right when going back to main.html
+      container.classList.add('slide-out-right');
+
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 500);
+    });
+  }
+</script>
+
+</body>
+</html>
