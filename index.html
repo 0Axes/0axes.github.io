@@ -150,21 +150,6 @@
         window.location.href = targetUrl;
       }, 500);
     });
-    
-    // 4. Reset animation safely on browser BACK/FORWARD navigation
-  window.addEventListener('pageshow', (event) => {
-    const activeCard = document.getElementById('welcomeCard');
-    if (activeCard) {
-      activeCard.classList.remove('slide-out');
-
-      // Force animation restart if loaded from bfcache
-      if (event.persisted) {
-        activeCard.style.animation = 'none';
-        void activeCard.offsetWidth; // Trigger reflow
-        activeCard.style.animation = '';
-      }
-    }
-  });
   </script>
 
 </body>
